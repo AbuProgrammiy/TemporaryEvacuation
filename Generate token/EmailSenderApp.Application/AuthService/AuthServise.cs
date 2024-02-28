@@ -29,7 +29,7 @@ namespace EmailSenderApp.Application.AuthService
                 List<Claim> claims = new List<Claim>()
                 {
                     new Claim(JwtRegisteredClaimNames.Jti,Guid.NewGuid().ToString()),
-                    new Claim(JwtRegisteredClaimNames.Iat,EpochTime.GetIntDate(DateTime.UtcNow).ToString(CultureInfo.InvariantCulture)),
+                    new Claim(JwtRegisteredClaimNames.Iat,EpochTime.GetIntDate(DateTime.UtcNow).ToString(CultureInfo.InvariantCulture),ClaimValueTypes.Integer64),
                     new Claim(ClaimTypes.Name,user.UserName),
                     new Claim("Password",user.Password)
                 };
